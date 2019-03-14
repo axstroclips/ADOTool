@@ -1,0 +1,28 @@
+﻿ System.AreaPath: Courseware
+ System.TeamProject: Courseware
+ System.IterationPath: Courseware
+ System.WorkItemType: Epic
+ System.State: New
+ System.Reason: New
+ System.CreatedDate: 3/14/2019 9:56:27 AM
+ System.CreatedBy: Qijie Xue <v-qixue@microsoft.com>
+ System.ChangedDate: 3/14/2019 10:09:23 AM
+ System.ChangedBy: Qijie Xue <v-qixue@microsoft.com>
+ System.CommentCount: 0
+ System.Title: Epic:  AUTO-How to develop a Tool
+ System.BoardColumn: New
+ System.BoardColumnDone: False
+ Microsoft.VSTS.Scheduling.Effort: 23
+ Microsoft.VSTS.Common.StateChangeDate: 3/14/2019 9:56:27 AM
+ Microsoft.VSTS.Common.Priority: 2
+ Microsoft.VSTS.Scheduling.TargetDate: 3/15/2019 12:00:00 AM
+ Microsoft.VSTS.Common.BusinessValue: 432423
+ Microsoft.VSTS.Scheduling.StartDate: 3/7/2019 12:00:00 AM
+ Microsoft.VSTS.Common.ValueArea: Architectural
+ Microsoft.VSTS.Common.TimeCriticality: 23423
+ Microsoft.VSTS.Common.Risk: 2 - Medium
+ WEF_8CE7DF5D05F64A1E8B74C3174A2CD0A9_Kanban.Column: New
+ WEF_8CE7DF5D05F64A1E8B74C3174A2CD0A9_Kanban.Column.Done: False
+ System.Description: <div>testde</div>
+Fields Complete::
+Program finished.

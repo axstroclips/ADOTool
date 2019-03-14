@@ -1,0 +1,115 @@
+﻿ JsonPatchDocument patchDocument = new JsonPatchDocument();
+       
+                patchDocument.Add(new JsonPatchOperation()
+                {
+                    Operation = Operation.Add,
+                    Path = "/fields/System.AreaPath",
+                    Value = "Courseware\\MS Learn"
+                });
+
+                patchDocument.Add(new JsonPatchOperation()
+                {
+                    Operation = Operation.Add,
+                    Path = "/fields/System.TeamProject",
+                    Value = "Courseware"
+                });
+
+                patchDocument.Add(new JsonPatchOperation()
+                {
+                    Operation = Operation.Add,
+                    Path = "/fields/System.IterationPath",
+                    Value = "Courseware"
+                });
+
+                patchDocument.Add(new JsonPatchOperation()
+                {
+                    Operation = Operation.Add,
+                    Path = "/fields/System.WorkItemType",
+                    Value = "Learning Path"
+                });
+
+                patchDocument.Add(new JsonPatchOperation()
+                {
+                    Operation = Operation.Add,
+                    Path = "/fields/System.Title",
+                    Value = "Demo-Automation Test"
+                });
+
+                patchDocument.Add(new JsonPatchOperation()
+                {
+                    Operation = Operation.Add,
+                    Path = "/fields/Custom.md_author",
+                    Value = ""
+                });
+
+                patchDocument.Add(new JsonPatchOperation()
+                {
+                    Operation = Operation.Add,
+                    Path = "/fields/Custom.md_ms_author",
+                    Value = ""
+                });
+
+                patchDocument.Add(new JsonPatchOperation()
+                {
+                    Operation = Operation.Add,
+                    Path = "/fields/Custom.md_ms_topic",
+                    Value = ""
+                });
+
+                patchDocument.Add(new JsonPatchOperation()
+                {
+                    Operation = Operation.Add,
+                    Path = "/fields/Custom.md_ms_prod",
+                    Value = ""
+                });
+
+                patchDocument.Add(new JsonPatchOperation()
+                {
+                    Operation = Operation.Add,
+                    Path = "/fields/Custom.iconUrl",
+                    Value = ""
+                });
+
+                patchDocument.Add(new JsonPatchOperation()
+                {
+                    Operation = Operation.Add,
+                    Path = "/fields/Custom.roles",
+                    Value = ""
+                });
+
+                patchDocument.Add(new JsonPatchOperation()
+                {
+                    Operation = Operation.Add,
+                    Path = "/fields/Custom.products",
+                    Value = ""
+                });
+
+                patchDocument.Add(new JsonPatchOperation()
+                {
+                    Operation = Operation.Add,
+                    Path = "/fields/Custom.UID",
+                    Value = ""
+                });
+
+                patchDocument.Add(new JsonPatchOperation()
+                {
+                    Operation = Operation.Add,
+                    Path = "/fields/Custom.trophy",
+                    Value = ""
+                });
+
+                patchDocument.Add(new JsonPatchOperation()
+                {
+                    Operation = Operation.Add,
+                    Path = "/fields/Custom.summary",
+                    Value = "<div>Computers play a big role in how people work and live today. Complete these lessons to learn how to interact with a computer and use software applications to get things done." +
+                    "<ul><li>List Item</li>" +
+                    "<li>List Item</li></ul></div>"
+                });
+
+                patchDocument.Add(new JsonPatchOperation()
+                {
+                    Operation = Operation.Add,
+                    Path = "/fields/Custom.prerequisites",
+                    Value = ""
+                });

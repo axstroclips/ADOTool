@@ -1,0 +1,23 @@
+﻿ System.AreaPath: Courseware\LaaS SameDay
+ System.TeamProject: Courseware
+ System.IterationPath: Courseware
+ System.WorkItemType: Test Case
+ System.State: Design
+ System.Reason: New
+ System.AssignedTo: Qijie Xue <v-qixue@microsoft.com>
+ System.CreatedDate: 4/3/2018 6:31:26 AM
+ System.CreatedBy: Qijie Xue <v-qixue@microsoft.com>
+ System.ChangedDate: 3/8/2019 6:36:16 AM
+ System.ChangedBy: Qijie Xue <v-qixue@microsoft.com>
+ System.CommentCount: 1
+ System.Title: In staging View Live site(:80) - For the course in staging, course graphics display well in each page
+ Microsoft.VSTS.Common.StateChangeDate: 4/3/2018 6:31:26 AM
+ Microsoft.VSTS.Common.ActivatedDate: 4/3/2018 6:31:26 AM
+ Microsoft.VSTS.Common.ActivatedBy: Qijie Xue <v-qixue@microsoft.com>
+ Microsoft.VSTS.Common.Priority: 2
+ Microsoft.VSTS.TCM.AutomationStatus: Not Automated
+ Custom.WhenToRun: Test Pass
+ System.Description: <p class=MsoListParagraph style="margin-left:1.5in;text-indent:-1.5in;">Root course is link set to //prod-edxapp.edx-cdn.org/assets/courseware/v1/1c986225b3875058de8ffe1270f680b8/asset-v1:Microsoft+DEVOPS200.5x+4T2017+type@asset+block/M0L1T2_EKxhy1d.jpg
+need be updated to /static/M0L1T2_EKxhy1d.jpg</p>
+ Microsoft.VSTS.TCM.Steps: <steps id="0" last="4"><step id="2" type="ActionStep"><parameterizedString isformatted="true">&lt;DIV&gt;&lt;P&gt;For a course in staging (&amp;nbsp;&lt;SPAN style="font-family: Calibri, sans-serif;font-size: 11pt"&gt;&lt;A href="http://52.229.164.10:18010/" style="font-family: Calibri, sans-serif;font-size: 11pt" tabindex="-1"&gt;http://52.229.164.10:18010&lt;/A&gt;), in outline, click View Live button to go live site.&lt;/SPAN&gt;&lt;/P&gt;&lt;/DIV&gt;</parameterizedString><parameterizedString isformatted="true">&lt;DIV&gt;&lt;P&gt;&amp;nbsp;&lt;/P&gt;&lt;/DIV&gt;</parameterizedString><description/></step><step id="3" type="ActionStep"><parameterizedString isformatted="true">&lt;DIV&gt;&lt;P&gt;Switch to Course tab, go through the course page by page.&lt;/P&gt;&lt;/DIV&gt;</parameterizedString><parameterizedString isformatted="true">&lt;DIV&gt;&lt;P&gt;&amp;nbsp;&lt;/P&gt;&lt;/DIV&gt;</parameterizedString><description/></step><step id="4" type="ActionStep"><parameterizedString isformatted="true">&lt;P&gt;Verify the graphics in every page display well.&lt;/P&gt;</parameterizedString><parameterizedString isformatted="true">&lt;DIV&gt;&lt;P&gt;&amp;nbsp;&lt;/P&gt;&lt;/DIV&gt;</parameterizedString><description/></step></steps>
+Program finished.

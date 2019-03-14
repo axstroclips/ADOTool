@@ -1,0 +1,130 @@
+14/3/2019 10:59:38: Error creating Learning Path: At least one operation is required for Apply.
+14/3/2019 11:05:51: Error creating Learning Path: TF401320: Rule Error for field Title. Error code: Required, InvalidEmpty.
+14/3/2019 11:11:40: Learning Path Successfully Created: # 1218
+14/3/2019 11:41:16: Learning Path Successfully Created: # 1246
+14/3/2019 11:41:17: Module Successfully Created: # 1247
+14/3/2019 11:41:17: Unit Successfully Created: # 1248
+14/3/2019 11:41:18: Successfully linked source item # 1247 to target item # 1248.
+14/3/2019 11:41:19: Failed to link source item # 1246 to target item # 1246.
+14/3/2019 14:24:40: Learning Path Successfully Created: # 1284
+14/3/2019 14:28:12: Successfully Deleted Work Item: # 1141
+14/3/2019 14:28:16: Successfully Deleted Work Item: # 1248
+14/3/2019 14:28:45: Failed to delete Work Item: # 1141 - Error Message: TF401232: Work item 1141 does not exist, or you do not have permissions to read it.
+14/3/2019 14:28:45: Failed to delete Work Item: # 1248 - Error Message: TF401232: Work item 1248 does not exist, or you do not have permissions to read it.
+14/3/2019 14:46:06: Successfully Deleted Work Item: # 1140
+14/3/2019 14:46:06: Successfully Deleted Work Item: # 1139
+14/3/2019 14:46:51: Successfully Deleted Work Item: # 1247
+14/3/2019 14:46:52: Successfully Deleted Work Item: # 1218
+14/3/2019 14:48:25: Successfully Deleted Work Item: # 1246
+14/3/2019 14:48:26: Successfully Deleted Work Item: # 1284
+14/3/2019 15:24:37: Learning Path Successfully Created: # 1285
+14/3/2019 15:24:37: Module Successfully Created: # 1286
+14/3/2019 15:24:38: Unit Successfully Created: # 1287
+14/3/2019 15:24:39: Successfully linked source item # 1286 to target item # 1287.
+14/3/2019 15:24:40: Unit Successfully Created: # 1288
+14/3/2019 15:24:41: Successfully linked source item # 1286 to target item # 1288.
+14/3/2019 15:24:41: Module Successfully Created: # 1289
+14/3/2019 15:24:41: Unit Successfully Created: # 1290
+14/3/2019 15:24:42: Successfully linked source item # 1289 to target item # 1290.
+14/3/2019 15:24:43: Unit Successfully Created: # 1291
+14/3/2019 15:24:44: Successfully linked source item # 1289 to target item # 1291.
+14/3/2019 15:24:44: Unit Successfully Created: # 1292
+14/3/2019 15:24:45: Successfully linked source item # 1289 to target item # 1292.
+14/3/2019 15:24:46: Successfully linked source item # 1285 to target item # 1286.
+14/3/2019 15:24:46: Successfully linked source item # 1285 to target item # 1289.
+14/3/2019 15:49:08: Successfully Updated Work Item: # 123
+14/3/2019 15:54:15: The work item id # 123456789 does not exist. Error - TF401232: Work item 123456789 does not exist, or you do not have permissions to read it.
+14/3/2019 15:54:53: The work item id # 123456789 does not exist. Error - TF401232: Work item 123456789 does not exist, or you do not have permissions to read it.
+14/3/2019 15:55:44: Successfully Updated Work Item: # 1285
+14/3/2019 15:57:02: Successfully Updated Work Item: # 1286
+14/3/2019 15:57:03: Successfully Updated Work Item: # 1287
+14/3/2019 15:57:03: Successfully Updated Work Item: # 1288
+14/3/2019 15:57:04: Successfully Updated Work Item: # 1289
+14/3/2019 15:57:05: Successfully Updated Work Item: # 1292
+14/3/2019 15:57:05: Successfully Updated Work Item: # 1290
+14/3/2019 15:57:06: Successfully Updated Work Item: # 1291
+14/3/2019 15:57:07: Successfully Updated Work Item: # 1285
+14/3/2019 15:58:52: Successfully Updated Work Item: # 1285
+14/3/2019 15:58:53: Successfully Updated Work Item: # 1291
+14/3/2019 16:05:34: Job Role Successfully Created: # 1316
+14/3/2019 16:05:34: Training Material Successfully Created: # 1317
+14/3/2019 16:05:35: Error creating Course Instance: TF401320: Rule Error for field Course Title. Error code: Required, InvalidEmpty. 5 additional errors occurred during validation of the work item. Please correct all errors and try again.
+14/3/2019 16:09:04: Successfully Deleted Work Item: # 1316
+14/3/2019 16:09:04: Successfully Deleted Work Item: # 1317
+14/3/2019 16:24:03: Job Role Successfully Created: # 1333
+14/3/2019 16:24:04: Training Material Successfully Created: # 1334
+14/3/2019 16:24:04: Course Instance Successfully Created: # 1335
+14/3/2019 16:24:05: Successfully linked source item # 1334 to target item # 1335.
+14/3/2019 16:24:05: Course Instance Successfully Created: # 1336
+14/3/2019 16:24:06: Successfully linked source item # 1334 to target item # 1336.
+14/3/2019 16:24:07: Training Material Successfully Created: # 1337
+14/3/2019 16:24:07: Course Instance Successfully Created: # 1338
+14/3/2019 16:24:08: Successfully linked source item # 1337 to target item # 1338.
+14/3/2019 16:24:08: Course Instance Successfully Created: # 1339
+14/3/2019 16:24:09: Successfully linked source item # 1337 to target item # 1339.
+14/3/2019 16:24:10: Successfully linked source item # 1333 to target item # 1334.
+14/3/2019 16:24:11: Successfully linked source item # 1333 to target item # 1337.
+14/3/2019 16:49:54: Failed to delete Work Item: # 1316 - Error Message: TF401232: Work item 1316 does not exist, or you do not have permissions to read it.
+14/3/2019 16:49:55: Failed to delete Work Item: # 1317 - Error Message: TF401232: Work item 1317 does not exist, or you do not have permissions to read it.
+14/3/2019 17:25:35: Successfully Deleted Work Item: # 1286
+14/3/2019 17:25:35: Successfully Deleted Work Item: # 1287
+14/3/2019 17:25:35: Successfully Deleted Work Item: # 1288
+14/3/2019 17:25:36: Successfully Deleted Work Item: # 1289
+14/3/2019 17:25:36: Successfully Deleted Work Item: # 1292
+14/3/2019 17:25:37: Successfully Deleted Work Item: # 1290
+14/3/2019 17:25:37: Successfully Deleted Work Item: # 1291
+14/3/2019 17:25:38: Successfully Deleted Work Item: # 1285
+14/3/2019 17:56:27: Epic Successfully Created: # 1347
+14/3/2019 17:56:27: Feature Successfully Created: # 1348
+14/3/2019 17:56:28: Task Successfully Created: # 1349
+14/3/2019 17:56:29: Successfully linked source item # 1348 to target item # 1349.
+14/3/2019 17:56:29: Task Successfully Created: # 1350
+14/3/2019 17:56:30: Successfully linked source item # 1348 to target item # 1350.
+14/3/2019 17:56:31: Feature Successfully Created: # 1351
+14/3/2019 17:56:31: Task Successfully Created: # 1352
+14/3/2019 17:56:32: Successfully linked source item # 1351 to target item # 1352.
+14/3/2019 17:56:32: Task Successfully Created: # 1353
+14/3/2019 17:56:33: Successfully linked source item # 1351 to target item # 1353.
+14/3/2019 17:56:33: Task Successfully Created: # 1354
+14/3/2019 17:56:34: Successfully linked source item # 1351 to target item # 1354.
+14/3/2019 17:56:35: Feature Successfully Created: # 1355
+14/3/2019 17:56:35: Task Successfully Created: # 1356
+14/3/2019 17:56:36: Successfully linked source item # 1355 to target item # 1356.
+14/3/2019 17:56:36: Task Successfully Created: # 1357
+14/3/2019 17:56:37: Successfully linked source item # 1355 to target item # 1357.
+14/3/2019 17:56:38: Successfully linked source item # 1347 to target item # 1348.
+14/3/2019 17:56:39: Successfully linked source item # 1347 to target item # 1351.
+14/3/2019 17:56:39: Successfully linked source item # 1347 to target item # 1355.
+14/3/2019 18:05:59: Failed to Update Work Item: # 1355 - Error Message: TF51535: Cannot find field System.Risk.
+14/3/2019 18:06:00: Failed to Update Work Item: # 1357 - Error Message: At least one operation is required for Apply.
+14/3/2019 18:06:00: Failed to Update Work Item: # 1356 - Error Message: At least one operation is required for Apply.
+14/3/2019 18:06:02: Failed to Update Work Item: # 1348 - Error Message: TF51535: Cannot find field System.Risk.
+14/3/2019 18:06:02: Failed to Update Work Item: # 1350 - Error Message: At least one operation is required for Apply.
+14/3/2019 18:06:03: Failed to Update Work Item: # 1349 - Error Message: At least one operation is required for Apply.
+14/3/2019 18:06:04: Failed to Update Work Item: # 1351 - Error Message: TF51535: Cannot find field System.Risk.
+14/3/2019 18:06:04: Failed to Update Work Item: # 1352 - Error Message: At least one operation is required for Apply.
+14/3/2019 18:06:05: Failed to Update Work Item: # 1354 - Error Message: At least one operation is required for Apply.
+14/3/2019 18:06:05: Failed to Update Work Item: # 1353 - Error Message: At least one operation is required for Apply.
+14/3/2019 18:06:06: Failed to Update Work Item: # 1347 - Error Message: TF51535: Cannot find field System.Risk.
+14/3/2019 18:13:08: Successfully Updated Work Item: # 1355
+14/3/2019 18:13:08: Failed to Update Work Item: # 1357 - Error Message: At least one operation is required for Apply.
+14/3/2019 18:13:09: Failed to Update Work Item: # 1356 - Error Message: At least one operation is required for Apply.
+14/3/2019 18:13:10: Successfully Updated Work Item: # 1348
+14/3/2019 18:13:10: Failed to Update Work Item: # 1350 - Error Message: At least one operation is required for Apply.
+14/3/2019 18:13:11: Failed to Update Work Item: # 1349 - Error Message: At least one operation is required for Apply.
+14/3/2019 18:13:12: Successfully Updated Work Item: # 1351
+14/3/2019 18:13:12: Failed to Update Work Item: # 1352 - Error Message: At least one operation is required for Apply.
+14/3/2019 18:13:13: Failed to Update Work Item: # 1354 - Error Message: At least one operation is required for Apply.
+14/3/2019 18:13:13: Failed to Update Work Item: # 1353 - Error Message: At least one operation is required for Apply.
+14/3/2019 18:13:14: Successfully Updated Work Item: # 1347
+14/3/2019 18:13:58: Successfully Deleted Work Item: # 1355
+14/3/2019 18:13:59: Successfully Deleted Work Item: # 1357
+14/3/2019 18:13:59: Successfully Deleted Work Item: # 1356
+14/3/2019 18:14:00: Successfully Deleted Work Item: # 1348
+14/3/2019 18:14:00: Successfully Deleted Work Item: # 1350
+14/3/2019 18:14:01: Successfully Deleted Work Item: # 1349
+14/3/2019 18:14:01: Successfully Deleted Work Item: # 1351
+14/3/2019 18:14:02: Successfully Deleted Work Item: # 1352
+14/3/2019 18:14:02: Successfully Deleted Work Item: # 1354
+14/3/2019 18:14:02: Successfully Deleted Work Item: # 1353
+14/3/2019 18:14:03: Successfully Deleted Work Item: # 1347

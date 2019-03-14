@@ -1,0 +1,141 @@
+﻿https://github.com/Microsoft/vsts-dotnet-samples/blob/master/ClientLibrary/Snippets/Microsoft.TeamServices.Samples.Client/WorkItemTracking/WorkItemsSample.cs
+
+
+ /// <summary>
+        /// Get all fields of a specific id
+        /// </summary>
+        /// <param name="args"></param>
+        static void Main_1(string[] args)
+        {
+            var azureDevOpsURI = string.Empty;
+            var azureDevOpsPATs = string.Empty;
+
+            // Read the appsetings
+            var appSettings = ConfigurationManager.AppSettings;
+            if (appSettings.Count == 0)
+            {
+                Debug.WriteLine("appSettings is empty.");
+            }
+            else
+            {
+                foreach (var key in appSettings.AllKeys)
+                {
+                    if (key.ToString() == "AzureDevOpsURI")
+                    {
+                        azureDevOpsURI = appSettings[key];
+                    }
+                    else if (key.ToString() == "PATs")
+                    {
+                        azureDevOpsPATs = appSettings[key];
+                    }
+                }
+            }
+
+            // Connect to ADO
+            Uri accountUri = new Uri(azureDevOpsURI);
+
+            VssConnection connection = new VssConnection(accountUri, new VssBasicCredential(string.Empty, azureDevOpsPATs));
+
+            // Get an instance of the work item tracking client
+            WorkItemTrackingHttpClient witClient = connection.GetClient<WorkItemTrackingHttpClient>();
+
+            #region get specific work item
+            try
+            {
+                // Get an work item
+                WorkItem workItem = witClient.GetWorkItemAsync(872, expand: WorkItemExpand.Links | WorkItemExpand.Relations).Result;
+                foreach (var field in workItem.Fields)
+                {
+                    Console.WriteLine(" {0}: {1}", field.Key, field.Value);
+                }
+                Console.WriteLine("Fields Complete::");
+                if (workItem.Relations != null)
+                {
+                    foreach (var relation in workItem.Relations)
+                    {
+                        Console.WriteLine("Relation {0}: {1}", relation.Rel, relation.Url);
+                    }
+                    Console.WriteLine("Relations Complete::");
+                }
+
+
+                Console.WriteLine("Program finished.");
+                Console.ReadLine();
+            }
+            catch (AggregateException aex)
+            {
+                VssServiceException vssex = aex.InnerException as VssServiceException;
+                if (vssex != null)
+                {
+                    Debug.WriteLine(vssex.Message);
+                }
+            }
+            #endregion
+
+            //RunQuery(connection).GetAwaiter().GetResult();
+        }
+
+        static async Task RunQuery(VssConnection connection)
+        {
+            WorkItemTrackingHttpClient witClient = connection.GetClient<WorkItemTrackingHttpClient>();
+
+            Wiql wiql = new Wiql();
+            wiql.Query = "Select * " +
+                "From WorkItems " +
+                "Where [Work Item Type]='Test Case' ";
+
+            WorkItemQueryResult workItemQueryResult = await witClient.QueryByWiqlAsync(wiql);
+
+            if (workItemQueryResult.WorkItems.Count() != 0)
+            {
+                //need to get the list of our work item ids and put them into an array
+                List<int> list = new List<int>();
+                foreach (var item in workItemQueryResult.WorkItems)
+                {
+                    list.Add(item.Id);
+                }
+                int[] arr = list.ToArray();
+
+                //build a list of the fields we want to see
+                string[] fields = new string[9];
+                fields[0] = "System.Id";
+                fields[1] = "System.Title";
+                fields[2] = "System.AreaPath";
+                fields[3] = "System.IterationPath";
+                fields[4] = "Microsoft.VSTS.Common.Priority";
+                fields[5] = "Microsoft.VSTS.TCM.Steps";
+                fields[6] = "System.Description";
+                fields[7] = "System.WorkItemType";
+                fields[8] = "System.CreatedBy";
+
+                //get work items for the ids found in query
+                var workItems = await witClient.GetWorkItemsAsync(arr, fields, workItemQueryResult.AsOf);
+
+                Console.WriteLine("Query Results: {0} items found", workItems.Count);
+
+                StringBuilder testCaseInfo = new StringBuilder();
+                //loop though work items and write to console
+                foreach (var workItem in workItems)
+                {
+                    testCaseInfo.AppendLine(string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8}", getCSVColValue(workItem.Id.ToString()),
+                        getCSVColValue(workItem.Fields["System.Title"].ToString()),
+                        getCSVColValue(workItem.Fields["System.AreaPath"].ToString()),
+                        getCSVColValue(workItem.Fields["System.IterationPath"].ToString()),
+                        getCSVColValue(workItem.Fields["Microsoft.VSTS.Common.Priority"].ToString()),
+                        getCSVColValue(workItem.Fields["Microsoft.VSTS.TCM.Steps"].ToString()),
+                        getCSVColValue(workItem.Fields["System.Description"].ToString()),
+                        getCSVColValue(workItem.Fields["System.WorkItemType"].ToString()),
+                        getCSVColValue(workItem.Fields["System.CreatedBy"].ToString())));
+                    //Console.WriteLine("{0}          {1}                     {2}", workItem.Id, workItem.Fields["System.Title"], workItem.Fields["System.State"]);
+                }
+
+                string csvValue = testCaseInfo.ToString();
+                Console.WriteLine("query finished");
+                Console.ReadLine();
+            }
+        }
+
+        static string getCSVColValue(string value)
+        {
+            return value.Replace(",", ";");
+        }

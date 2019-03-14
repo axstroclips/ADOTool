@@ -1,0 +1,21 @@
+﻿ System.AreaPath: Parts Unlimited
+ System.TeamProject: Parts Unlimited
+ System.IterationPath: Parts Unlimited
+ System.WorkItemType: Test Case
+ System.State: Design
+ System.Reason: New
+ System.AssignedTo: Kimberly Rasmusson-Anderson <krasmuss@microsoft.com>
+ System.CreatedDate: 12/19/2018 9:00:45 PM
+ System.CreatedBy: Kimberly Rasmusson-Anderson <krasmuss@microsoft.com>
+ System.ChangedDate: 12/19/2018 9:00:45 PM
+ System.ChangedBy: Kimberly Rasmusson-Anderson <krasmuss@microsoft.com>
+ System.CommentCount: 0
+ System.Title: Verify that as a customer, user should be able to print the purchase order
+ Microsoft.VSTS.Scheduling.RemainingWork: 0
+ Microsoft.VSTS.Common.StateChangeDate: 12/19/2018 9:00:45 PM
+ Microsoft.VSTS.Common.ActivatedDate: 12/19/2018 9:00:45 PM
+ Microsoft.VSTS.Common.ActivatedBy: Kimberly Rasmusson-Anderson <krasmuss@microsoft.com>
+ Microsoft.VSTS.Common.Priority: 2
+ Microsoft.VSTS.TCM.AutomationStatus: Not Automated
+ Microsoft.VSTS.TCM.Steps: <steps id="0" last="4"><step id="1" type="ValidateStep"><parameterizedString isformatted="true">&lt;DIV&gt;&lt;P&gt;Launch the application and login into the application as a customer&lt;/P&gt;&lt;/DIV&gt;</parameterizedString><parameterizedString isformatted="true">&lt;P&gt;User should be able to login into the application with his credentials&lt;/P&gt;</parameterizedString><description/></step><step id="2" type="ValidateStep"><parameterizedString isformatted="true">&lt;DIV&gt;&lt;P&gt;Click on the Profile icon and select "Order"&lt;/P&gt;&lt;/DIV&gt;</parameterizedString><parameterizedString isformatted="true">&lt;DIV&gt;&lt;P&gt;User should be navigated to Orders screen with list of orders from the logged in Customer&lt;/P&gt;&lt;/DIV&gt;</parameterizedString><description/></step><step id="3" type="ValidateStep"><parameterizedString isformatted="true">&lt;DIV&gt;&lt;P&gt;Click on the Order number which customer wants to print&lt;/P&gt;&lt;/DIV&gt;</parameterizedString><parameterizedString isformatted="true">&lt;DIV&gt;&lt;P&gt;User should be navigated to Orders details screen.&lt;/P&gt;&lt;/DIV&gt;</parameterizedString><description/></step><step id="4" type="ValidateStep"><parameterizedString isformatted="true">&lt;DIV&gt;&lt;P&gt;Click on the Print button on the order details screen&lt;/P&gt;&lt;/DIV&gt;</parameterizedString><parameterizedString isformatted="true">&lt;DIV&gt;&lt;P&gt;Print preview page should be displayed and Customer should be able print the order page.&lt;/P&gt;&lt;/DIV&gt;</parameterizedString><description/></step></steps>
+Program finished.
