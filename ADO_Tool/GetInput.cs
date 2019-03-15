@@ -254,6 +254,7 @@ namespace ADO_Tool
                                     {
                                         Console.WriteLine("Invalid input file - {0}, at least 3 input values are required for 'Delete'.", _learningPathFile);
                                         WriteLog.WriteLogLine("Invalid input file - {0}, at least 3 input values are required for 'Delete'.", _learningPathFile);
+                                        return 0;
                                     }
                                 }; break;
                             case "q":
@@ -266,6 +267,34 @@ namespace ADO_Tool
                                 {
 
                                 }; break;
+                            case "g":
+                            case "get":
+                                {
+                                    int colCount = parameters.Length;
+                                    if(colCount==2)
+                                    {
+                                        int theId = 0;
+                                        Int32.TryParse(parameters[1], out theId);
+
+                                        if(theId!=0)
+                                        {
+                                            _operation.Operation = OperationType.Get;
+                                            _operation.WorkItemIdToDisplay = theId;
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Invalid input file - {0}, second paremeter should be integer for 'Get'.", _learningPathFile);
+                                            WriteLog.WriteLogLine("Invalid input file - {0}, second paremeter should be integer for 'Get'.", _learningPathFile);
+                                            return 0;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid input file - {0}, only 2 input values are required for 'Get'.", _learningPathFile);
+                                        WriteLog.WriteLogLine("Invalid input file - {0}, only 2 input values are required for 'Get'.", _learningPathFile);
+                                        return 0;
+                                    }
+                                };break;
                             default:
                                 {
                                     Console.WriteLine("Invalid input file - {0}, operation '{1}' is not support yet.", _learningPathFile, operation);

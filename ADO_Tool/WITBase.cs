@@ -116,7 +116,7 @@ namespace ADO_Tool
 
             try
             {
-                WorkItem result = witHttpClient.GetWorkItemAsync(WIId).Result;
+                WorkItem result = witHttpClient.GetWorkItemAsync(WIId,expand:WorkItemExpand.Links|WorkItemExpand.Relations).Result;
                 return result;
             }
             catch(AggregateException ex)
@@ -241,6 +241,26 @@ namespace ADO_Tool
                 }
             }
 
+        }
+
+        /// <summary>
+        /// Display all fields and relations of a specific work item
+        /// </summary>
+        /// <param name="wiId"></param>
+        public void DisplayAllFieldsOfSpecificWorkItemById(int wiId)
+        {
+            WorkItem workItem = GetWITByID(wiId);
+            foreach (var field in workItem.Fields)
+            {
+                Console.WriteLine(" {0}: {1}",field.Key, field.Value);
+            }
+            if(workItem.Relations!=null)
+            {
+                foreach (var relation in workItem.Relations)
+                {
+                    Console.WriteLine("Relation {0}: {1}",relation.Rel, relation.Url);
+                }
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ In summary, you could do following work with this tool:
 - **Add** a single Work Item, or add a work item with it's child work items, it supports three level deep.
 - **Delete** a specific work item, or delete a specific work item, as well as all it's child work items.
 - **Update** a specific work item, or update a specific work item, as well as all it's child work items.
+- **Get** a specific work item, display all the fields and values of a specific work item by work item id.
 
 ### Before run
 You have to update the configurations in the *App.config* file, here are the settings that are required:
@@ -42,7 +43,7 @@ a, Automation Test, 2
 a, Automation Test
 ```
 For *Delete*, the input content format is:
->[Operator],[is Cascading delete (true/false)],[Work Item Id],[...]
+> [Operator],[is Cascading delete (true/false)],[Work Item Id],[...]
 
 - [Required] The first column is for Delete operator, the value could be: d, delete, or Delete.  
 - [Required] The second column, if it's going to delete the work item and all it's child work items, set to **true**, otherwise, set to **false**
@@ -53,12 +54,28 @@ Example:
 d,fasle,1246,1284
 ```
 For *Update*, the input content format is:
->[Operator],[is Cascading delete (true/false)],[Work Item Id],[...]
+> [Operator],[is Cascading delete (true/false)],[Work Item Id],[...]
 
 - [Required] The first column is for Update operator, the value could be: u, update, or Update.  
 - [Required] The second column, if it's going to update the work item and all it's child work items, set to **true**, otherwise, set to **false**
 - [Required] The thrid column, the first work item id that is going to be update.
 
+Example:
+```csv
+u,false,1285,1291
+u,true,1347
+```
+
+For *Get*, the input content format is:
+> [Operator],[work item id]
+
+- [Required] The first column is for Get operator, the value could be: g, get, or Get,
+- [Required] The second column is the specific work item Id
+
+Example:
+```csv
+g,696
+```
 ### FieldValue.csv
 When creating, updating the work items, the tool will read the fields and values information from an FieldValue CSV file.
 

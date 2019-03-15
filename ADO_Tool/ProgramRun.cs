@@ -101,6 +101,13 @@ namespace ADO_Tool
                         }
                     }
                 }
+                else if(_getInput.Operation.Operation==OperationType.Get)
+                {
+                    if(_getInput.Operation.WorkItemIdToDisplay!=0)
+                    {
+                        witLearn.DisplayAllFieldsOfSpecificWorkItemById(_getInput.Operation.WorkItemIdToDisplay);
+                    }
+                }
             }
         }
     }
@@ -111,7 +118,8 @@ namespace ADO_Tool
         Update,
         Delete,
         Query,
-        QueryUpdate
+        QueryUpdate,
+        Get
     }
 
     public class OperationInformation
@@ -121,6 +129,7 @@ namespace ADO_Tool
         public int[][] LearningPathModulesInfo { get; set; }
         public List<int> WorkItemIDsToDelete { get; set; }
         public List<int> WorkItemIDsToUpdate { get; set; }
+        public int WorkItemIdToDisplay { get; set; }
         public bool IsCascadeDeleting { get; set; }
         public bool IsCascadeUpdating { get; set; }
     }

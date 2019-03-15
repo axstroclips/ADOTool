@@ -1,0 +1,2 @@
+15/3/2019 10:12:45: The work item id # 1347 does not exist. Error - TF401232: Work item 1347 does not exist, or you do not have permissions to read it.
+15/3/2019 10:12:45: Failed to delete Work Item: # 1347 - Error Message: TF401232: Work item 1347 does not exist, or you do not have permissions to read it.
