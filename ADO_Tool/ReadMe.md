@@ -112,3 +112,6 @@ Unit::Custom.durationInMinitues::100
 Unit::Custom.md_description::<div>A list item in unit description:<ol><li>a</li><li>b</li></ol></div>
 Test Case::System.Description::<p>test case description</p>
 ```
+
+### Tool Architecture
+![Azure DevOps Tool Architecture](ADO_Tool_architecture.png)
