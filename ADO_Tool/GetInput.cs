@@ -129,7 +129,7 @@ namespace ADO_Tool
                                     if (colCount == 2)
                                     {
                                         // Add a single Learning Path only
-                                        _operation.Operation = OperationType.Add;
+                                        _operation.Operation = OperationType.Add;                  
                                         _operation.LearningPathDisplayName = parameters[1];
                                         _operation.LearningPathModulesInfo = null;
                                     }
@@ -149,6 +149,7 @@ namespace ADO_Tool
                                             _operation.Operation = OperationType.Add;
                                             _operation.LearningPathDisplayName = parameters[1];
                                             _operation.LearningPathModulesInfo = new int[moduleCount][];
+     
                                             for (int i = 0; i < moduleCount; i++)
                                             {
                                                 _operation.LearningPathModulesInfo[i] = null;
@@ -201,12 +202,14 @@ namespace ADO_Tool
                                     if (colCount >=3)
                                     {
                                         _operation.Operation = OperationType.Update;
-                                        _operation.IsCascadeUpdating = false;
-                                        _operation.WorkItemIDsToUpdate = new List<int>();
+                                        //_operation.IsCascadeUpdating = false;
+                                        _operation.SetValue<bool>("$isCascadeUpdating", false);
+                                        var updateWorkItems = new List<int>();
                                         var isCascadingUpdate = parameters[1].Trim().ToLower();
                                         if(isCascadingUpdate=="false"|| isCascadingUpdate=="true")
                                         {
-                                            _operation.IsCascadeUpdating = Boolean.Parse(isCascadingUpdate);
+                                            //_operation.IsCascadeUpdating = Boolean.Parse(isCascadingUpdate);
+                                            _operation.SetValue<bool>("$isCascadeUpdating", Boolean.Parse(isCascadingUpdate));
                                         }
 
                                         for(int i=2; i<colCount; i++)
@@ -216,8 +219,9 @@ namespace ADO_Tool
 
                                             //add to list
                                             if (theId != 0)
-                                                _operation.WorkItemIDsToUpdate.Add(theId);
+                                                updateWorkItems.Add(theId);
                                         }
+                                        _operation.SetValue<List<int>>("$updateWorkItemIds", updateWorkItems);
                                     }
                                     else
                                     {
@@ -233,12 +237,14 @@ namespace ADO_Tool
                                     if(colCount>=3)
                                     {
                                         _operation.Operation = OperationType.Delete;
-                                        _operation.IsCascadeDeleting = false;
-                                        _operation.WorkItemIDsToDelete = new List<int>();
+                                        _operation.SetValue<bool>("$isCascadeDeleting", false);
+                                        //_operation.IsCascadeDeleting = false;
+                                        var deleteWorkItems = new List<int>();
                                         var isCascadingDelete = parameters[1].Trim().ToLower();
                                         if (isCascadingDelete == "false"|| isCascadingDelete == "true")
                                         {
-                                            _operation.IsCascadeDeleting = Boolean.Parse(isCascadingDelete);
+                                            //_operation.IsCascadeDeleting = Boolean.Parse(isCascadingDelete);
+                                            _operation.SetValue<bool>("$isCascadeDeleting", Boolean.Parse(isCascadingDelete));
                                         }
                                         for(int i=2; i<colCount; i++)
                                         {
@@ -247,8 +253,10 @@ namespace ADO_Tool
 
                                             //add to list
                                             if(theId!=0)
-                                                _operation.WorkItemIDsToDelete.Add(theId);
+                                                deleteWorkItems.Add(theId);
                                         }
+
+                                        _operation.SetValue<List<int>>("$deleteWorkItemIds", deleteWorkItems);
                                     }
                                     else
                                     {
@@ -260,13 +268,55 @@ namespace ADO_Tool
                             case "q":
                             case "query":
                                 {
-
+                                    int colCount = parameters.Length;
+                                    if (colCount >= 2)
+                                    {
+                                        List<WITFieldEntity> clauses = new List<WITFieldEntity>();
+                                        // retrieve the query clause
+                                        for(int i=1; i<colCount; i++)
+                                        {
+                                            string text = parameters[i];
+                                            string [] keyValue = text.Split(new string[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
+                                            if(keyValue.Length==2)
+                                            {
+                                                WITFieldEntity entity = new WITFieldEntity()
+                                                {
+                                                    FieldName = keyValue[0].Trim(),
+                                                    FieldValue = keyValue[1].Trim()
+                                                };
+                                                clauses.Add(entity);
+                                            }
+                                        }
+                                        _operation.Operation = OperationType.Query;
+                                        _operation.SetValue<List<WITFieldEntity>>("$QueryClauses", clauses);
+                                    }
                                 }; break;
                             case "qu":
                             case "queryupdate":
                                 {
-
-                                }; break;
+                                    int colCount = parameters.Length;
+                                    if (colCount >= 2)
+                                    {
+                                        List<WITFieldEntity> clauses = new List<WITFieldEntity>();
+                                        // retrieve the query clause
+                                        for (int i = 1; i < colCount; i++)
+                                        {
+                                            string text = parameters[i];
+                                            string[] keyValue = text.Split(new string[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
+                                            if (keyValue.Length == 2)
+                                            {
+                                                WITFieldEntity entity = new WITFieldEntity()
+                                                {
+                                                    FieldName = keyValue[0].Trim(),
+                                                    FieldValue = keyValue[1].Trim()
+                                                };
+                                                clauses.Add(entity);
+                                            }
+                                        }
+                                        _operation.Operation = OperationType.QueryUpdate;
+                                        _operation.SetValue<List<WITFieldEntity>>("$QueryClauses", clauses);
+                                    }
+                                }; break;                      
                             case "g":
                             case "get":
                                 {
@@ -279,7 +329,8 @@ namespace ADO_Tool
                                         if(theId!=0)
                                         {
                                             _operation.Operation = OperationType.Get;
-                                            _operation.WorkItemIdToDisplay = theId;
+                                            //_operation.WorkItemIdToDisplay = theId;
+                                            _operation.SetValue<int>("$workItemId", theId);
                                         }
                                         else
                                         {

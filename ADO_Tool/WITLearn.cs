@@ -96,6 +96,12 @@ namespace ADO_Tool
             {
                 var workItemTypeName = workItem.Fields["System.WorkItemType"].ToString();
                 JsonPatchDocument document = ConstructJsonPatchDocument(workItemTypeName);
+                document.Add(new JsonPatchOperation()
+                {
+                    Operation = Operation.Add,
+                    Path = "/fields/System.History",
+                    Value = "Changed by ADO Tool"
+                });
                 UpdateWIT(document, workItemId);
             }
         }
@@ -128,6 +134,75 @@ namespace ADO_Tool
             
 
             return document;
+        }
+
+        public IEnumerable<WorkItem> GetWorkItemsByQuery(List<WITFieldEntity> entities)
+        {
+            StringBuilder queryText = new StringBuilder();
+            queryText.AppendLine("Select * From WorkItems ");
+            if (entities.Count >= 1)
+                queryText.AppendLine(string.Format(" Where [{0}]='{1}' ", entities[0].FieldName, entities[0].FieldValue));
+            if(entities.Count>=2)
+            {
+                for(int i=1; i<entities.Count; i++)
+                {
+                    queryText.AppendLine(string.Format(" And [{0}]='{1}'", entities[i].FieldName, entities[i].FieldValue));
+                }
+            }
+
+            string query = queryText.ToString();
+            WorkItemQueryResult queryResult = ExecuteByWiql(query);
+
+            if(queryResult.WorkItems.Count()==0)
+            {
+                return new List<WorkItem>();
+            }
+            else
+            {
+                int[] workItemIds = queryResult.WorkItems.Select<WorkItemReference, int>(wif => { return wif.Id; }).ToArray();
+
+                string[] fields = new[]
+                {
+                    "System.WorkItemType",
+                    "System.Id",
+                    "System.Title",
+                    "System.State",
+                    "System.AssignedTo"
+                };
+
+                var witClient = this.Connection.GetClient<WorkItemTrackingHttpClient>();
+                IEnumerable<WorkItem> workItems = witClient.GetWorkItemsAsync(
+                    workItemIds,
+                    fields,
+                    queryResult.AsOf).Result;
+
+                // Log to CSV
+                if(workItems!=null)
+                {
+                    StringBuilder sbText = new StringBuilder();
+                    if (workItems.Count() != 0)
+                    {
+                        Console.WriteLine("ID, Work Item Type, Title, State, Assign To");
+                        sbText.AppendLine("ID, Work Item Type, Title, State, Assign To");
+                        foreach (WorkItem item in workItems)
+                        {
+                            if(!item.Fields.ContainsKey("System.AssignedTo"))
+                            {
+                                item.Fields["System.AssignedTo"] = "UnAssigned";
+                            }
+                            Console.WriteLine(item.Id + ", "  + item.Fields["System.WorkItemType"] + ", " + item.Fields["System.Title"].ToString().Replace(",", ";") + ", " + item.Fields["System.State"] + ", " + item.Fields["System.AssignedTo"]);
+                            sbText.AppendLine(item.Id + ", "  + item.Fields["System.WorkItemType"] + ", " + item.Fields["System.Title"].ToString().Replace(",", ";") + ", " + item.Fields["System.State"] + ", " + item.Fields["System.AssignedTo"]);
+                        }
+                    }
+
+                    using (System.IO.StreamWriter writer = new System.IO.StreamWriter("QueryResults.csv"))
+                    {
+                        writer.Write(sbText.ToString());
+                        writer.Flush();
+                    }
+                }
+                return workItems;
+            }
         }
     }
 }

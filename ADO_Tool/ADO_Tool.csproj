@@ -118,6 +118,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ADO_Tool_architecture.png" />
     <Content Include="Sample_WI\Bug_440.txt" />
     <Content Include="Sample_WI\Epic_1347.txt" />
     <Content Include="Sample_WI\LearningPath_872.txt" />
@@ -125,6 +126,7 @@
     <Content Include="Sample_WI\PatchDocument.txt" />
     <Content Include="Sample_WI\TestCase_374.txt" />
     <Content Include="Sample_WI\TestCase_696.txt" />
+    <Content Include="Sample_WI\TrainerMaterial_1092.txt" />
     <Content Include="Sample_WI\Unit_874.txt" />
     <Content Include="Sample_WI\WorkItemsSample.txt" />
   </ItemGroup>

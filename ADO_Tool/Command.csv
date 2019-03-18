@@ -1,4 +1,13 @@
-﻿g,872
+﻿d,true,1688, 1673, 1678, 1683
+a,auto-mb courses,3,1.4,2.4,3.4
+g,1143
+d,true,1655
+q,System.WorkItemType: Training Material,Custom.CourseState: Under Development
+g,1092
+d,true,1538
+qu,System.Id:374
+q,System.AreaPath: Courseware\LaaS SameDay,Custom.WhenToRun: Test Pass
+g,872
 d,true,1347
 u,true,1347
 a, AUTO-How to develop a Tool, 3, 1.2,2.3,3.2

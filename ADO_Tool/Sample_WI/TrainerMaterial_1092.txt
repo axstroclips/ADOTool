@@ -1,0 +1,26 @@
+﻿ System.AreaPath: Courseware
+ System.TeamProject: Courseware
+ System.IterationPath: Courseware
+ System.WorkItemType: Training Material
+ System.State: Active
+ System.Reason: Moved to state Active
+ System.CreatedDate: 3/13/2019 6:29:51 AM
+ System.CreatedBy: Diana Ning <v-dining@microsoft.com>
+ System.ChangedDate: 3/18/2019 3:32:44 AM
+ System.ChangedBy: Qijie Xue <v-qixue@microsoft.com>
+ System.CommentCount: 1
+ System.Title: AZ-203T06: Connect to and consume Azure, and third-party, services
+ System.BoardColumn: Active
+ System.BoardColumnDone: False
+ Microsoft.VSTS.Common.StackRank: 1638888888
+ WEF_10918BCA87BE40F2AC83839497847777_Kanban.Column: Active
+ WEF_10918BCA87BE40F2AC83839497847777_Kanban.Column.Done: False
+ Custom.ContentDevTeam: GCL
+ Custom.MOOCCourseNo: AZ-203.6
+ Custom.MordenILTCourseNo: AZ-203T06
+ Custom.TargetReleaseDate: 4/1/2019 12:00:00 AM
+ Custom.AzurePass: False
+ Custom.ContentDeveloper: Jeff Koch
+ Custom.CourseState: In Production
+ Custom.ContentOwner: Jeff Koch <jeffko@microsoft.com>
+All Finished!

@@ -56,11 +56,12 @@ namespace ADO_Tool
                 }
                 else if(_getInput.Operation.Operation == OperationType.Update)
                 {
-                    if(_getInput.Operation.WorkItemIDsToUpdate!=null)
+                    var updateWorkItems = _getInput.Operation.GetValue<List<int>>("$updateWorkItemIds");
+                    if(updateWorkItems != null)
                     {
-                        foreach (int workItemId in _getInput.Operation.WorkItemIDsToUpdate)
+                        foreach (int workItemId in updateWorkItems)
                         {
-                            if(_getInput.Operation.IsCascadeUpdating)
+                            if(_getInput.Operation.GetValue<bool>("$isCascadeUpdating"))
                             {
                                 // Get descendants work items of the workItemId
                                 List<int> childWorkItemIds = new List<int>();
@@ -79,12 +80,13 @@ namespace ADO_Tool
                 }
                 else if(_getInput.Operation.Operation == OperationType.Delete)
                 {
-                    if(_getInput.Operation.WorkItemIDsToDelete!=null)
+                    var deleteWorkItems = _getInput.Operation.GetValue<List<int>>("$deleteWorkItemIds");
+                    if(deleteWorkItems != null)
                     {
-                        foreach (int workItemId in _getInput.Operation.WorkItemIDsToDelete)
+                        foreach (int workItemId in deleteWorkItems)
                         {
                             
-                            if (_getInput.Operation.IsCascadeDeleting)
+                            if (_getInput.Operation.GetValue<bool>("$isCascadeDeleting"))
                             {
                                 // Get descendants work items of the workItemId
                                 List<int> childWorkItemIds = new List<int>();
@@ -103,9 +105,32 @@ namespace ADO_Tool
                 }
                 else if(_getInput.Operation.Operation==OperationType.Get)
                 {
-                    if(_getInput.Operation.WorkItemIdToDisplay!=0)
+                    if(_getInput.Operation.GetValue<int>("$workItemId")!=0)
                     {
-                        witLearn.DisplayAllFieldsOfSpecificWorkItemById(_getInput.Operation.WorkItemIdToDisplay);
+                        witLearn.DisplayAllFieldsOfSpecificWorkItemById(_getInput.Operation.GetValue<int>("$workItemId"));
+                    }
+                }
+                else if(_getInput.Operation.Operation == OperationType.Query)
+                {
+                    var queryClauses = _getInput.Operation.GetValue<List<WITFieldEntity>>("$QueryClauses");
+                    if (queryClauses != null)
+                    {
+                        var workItems = witLearn.GetWorkItemsByQuery(queryClauses);
+                    }
+                }
+                else if(_getInput.Operation.Operation ==OperationType.QueryUpdate)
+                {
+                    var queryClauses = _getInput.Operation.GetValue<List<WITFieldEntity>>("$QueryClauses");
+                    if (queryClauses != null)
+                    {
+                        var workItems = witLearn.GetWorkItemsByQuery(queryClauses);
+                        if(workItems.Count()!=0)
+                        {
+                            foreach (var item in workItems)
+                            {
+                                witLearn.UpdateWorkItemUsingClientLib(Convert.ToInt32(item.Id));
+                            }
+                        }
                     }
                 }
             }
@@ -127,10 +152,18 @@ namespace ADO_Tool
         public OperationType Operation { get; set; }
         public string LearningPathDisplayName { get; set; }
         public int[][] LearningPathModulesInfo { get; set; }
-        public List<int> WorkItemIDsToDelete { get; set; }
-        public List<int> WorkItemIDsToUpdate { get; set; }
-        public int WorkItemIdToDisplay { get; set; }
-        public bool IsCascadeDeleting { get; set; }
-        public bool IsCascadeUpdating { get; set; }
+        Dictionary<String, Object> Properties { get; set; } = new Dictionary<String, Object>();
+        public void SetValue<T>(string key, T value)
+        {
+            Properties[key] = value;
+        }
+        public T GetValue<T>(string key)
+        {
+            return (T)Properties[key];
+        }
+        public void RemoveValue(string key)
+        {
+            Properties.Remove(key);
+        }
     }
 }

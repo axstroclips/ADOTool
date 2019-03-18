@@ -13,6 +13,8 @@ In summary, you could do following work with this tool:
 - **Delete** a specific work item, or delete a specific work item, as well as all it's child work items.
 - **Update** a specific work item, or update a specific work item, as well as all it's child work items.
 - **Get** a specific work item, display all the fields and values of a specific work item by work item id.
+- **Query** work items by provided field/value pairs.
+- **Query&Update** to query work items by provided field/value pairs, then update the work items using the field values configured in file *FieldValue.csv*. 
 
 ### Before run
 You have to update the configurations in the *App.config* file, here are the settings that are required:
@@ -75,6 +77,23 @@ For *Get*, the input content format is:
 Example:
 ```csv
 g,696
+```
+
+For *Query*, the input content format is:
+> [Operator],[field:value],[field:value],[...]
+
+- [Required] The first column is for Query operator, the value could be: q, query, or Query,
+- [Required] The second columns are field/value pairs, at least one.
+
+Example:
+```csv
+q,System.AreaPath: Courseware\LaaS SameDay,Custom.WhenToRun: Test Pass
+```
+
+For *Query&Update*, it's similar to *Query*.
+Example:
+```csv
+qu,System.Id:374
 ```
 ### FieldValue.csv
 When creating, updating the work items, the tool will read the fields and values information from an FieldValue CSV file.

@@ -250,6 +250,8 @@ namespace ADO_Tool
         public void DisplayAllFieldsOfSpecificWorkItemById(int wiId)
         {
             WorkItem workItem = GetWITByID(wiId);
+            if (workItem == null)
+                return;
             foreach (var field in workItem.Fields)
             {
                 Console.WriteLine(" {0}: {1}",field.Key, field.Value);
@@ -261,6 +263,18 @@ namespace ADO_Tool
                     Console.WriteLine("Relation {0}: {1}",relation.Rel, relation.Url);
                 }
             }
+        }
+
+        public WorkItemQueryResult ExecuteByWiql(string query)
+        {
+            WorkItemTrackingHttpClient witClient = this.Connection.GetClient<WorkItemTrackingHttpClient>();
+            Wiql wiql = new Wiql()
+            {
+                Query = query
+            };
+
+            WorkItemQueryResult queryResult = witClient.QueryByWiqlAsync(wiql, this.Project).Result;
+            return queryResult;
         }
     }
 }
